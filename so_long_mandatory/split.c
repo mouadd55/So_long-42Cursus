@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:59:09 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/01 17:09:39 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/02 09:17:56 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,9 @@ char	**ft_free_arr(char **arr)
 {
 	int	i;
 
-	i = 0;
-	while (arr[i])
-	{
+	i = -1;
+	while (arr[++i])
 		free (arr[i]);
-		i++;
-	}
 	free (arr);
 	return (0);
 }

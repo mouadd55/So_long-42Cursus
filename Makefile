@@ -6,7 +6,7 @@
 #    By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 11:01:41 by moudrib           #+#    #+#              #
-#    Updated: 2023/03/01 23:06:39 by moudrib          ###   ########.fr        #
+#    Updated: 2023/03/02 08:58:17 by moudrib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC = \
 		so_long_mandatory/utils2.c \
 		so_long_mandatory/so_long.c \
 		so_long_mandatory/parsing.c \
-		so_long_mandatory/get_next_line.c
+		so_long_mandatory/parsing_utils.c \
+		so_long_mandatory/get_next_line.c \
 
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

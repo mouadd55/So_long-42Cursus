@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/01 21:14:23 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/02 09:06:55 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	ft_error(void);
 int		ft_check_borders(char **map);
 int		ft_check_characters(char **map);
-int		ft_check_components(char **map);
+int		ft_check_valid_map(char **map);
 int		ft_check_extension(char *file_name);
 char	**ft_copy_map_to_two_dim_array(char *file_path);
 
