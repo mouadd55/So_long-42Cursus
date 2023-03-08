@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:02:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/02 09:16:08 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/08 02:15:15 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,14 @@ int	ft_check_valid_map(char **map)
 	while (map[0][variables.length_of_line])
 		variables.length_of_line++;
 	if (ft_check_borders(map))
-		return (ft_free_arr(map), 1);
+		return (1);
 	else if (variables.lines == variables.length_of_line)
-		return (ft_free_arr(map), 1);
+		return (1);
 	else if (ft_check_characters(map))
-		return (ft_free_arr(map), 1);
+		return (1);
 	else if (ft_check_rectangular_shape(map))
-		return (ft_free_arr(map), 1);
+		return (1);
+	else if (ft_check_special_character(map))
+		return (1);
 	return (0);
 }

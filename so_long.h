@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/02 09:06:55 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/07 21:34:19 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct t_vars
 	int		c;
 	int		lines;
 	int		walls;
+	int		newline;
 	int		length_of_line;
 	char	**map;
 
@@ -51,10 +52,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /************************** Parsing ***************************/
 
-void	ft_error(void);
+void	ft_error(int cases);
 int		ft_check_borders(char **map);
 int		ft_check_characters(char **map);
 int		ft_check_valid_map(char **map);
+int		ft_check_special_character(char **map);
 int		ft_check_extension(char *file_name);
 char	**ft_copy_map_to_two_dim_array(char *file_path);
 
