@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:49:24 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/02 09:01:15 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/15 00:18:10 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ size_t	ft_strlen(const char *str)
 void	ft_putchar(char ch)
 {
 	write (1, &ch, 1);
+}
+
+void	ft_putnbr(int nbr)
+{
+	if (nbr < 10)
+		ft_putchar(nbr + 48);
+	else
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
 }
 
 void	ft_putstr(char *str)

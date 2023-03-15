@@ -6,13 +6,14 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/07 21:34:19 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/15 04:30:59 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -26,20 +27,38 @@ typedef struct t_vars
 {
 	int		i;
 	int		j;
+	int		x;
+	int		y;
 	int		e;
 	int		p;
 	int		c;
+	void	*pu;
+	void	*pd;
+	void	*pl;
+	void	*pr;
+	void	*cl;
+	void	*bg;
+	void	*ex1;
+	void	*ex2;
+	void	*wl1;
+	void	*wl2;
+	void	*mlx;
+	void	*img;
+	char	**map;
 	int		lines;
 	int		walls;
+	int		count;
+	int		moves;
+	int		keycode;
 	int		newline;
+	void	*mlx_win;
 	int		length_of_line;
-	char	**map;
-
 }	t_vars;
 
 /************************* Libft utils *************************/
 
 void	ft_putchar(char ch);
+void	ft_putnbr(int nbr);
 void	ft_putstr(char *str);
 char	**ft_free_arr(char **arr);
 size_t	ft_strlen(const char *str);
@@ -53,17 +72,27 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 /************************** Parsing ***************************/
 
 void	ft_error(int cases);
-int		ft_check_borders(char **map);
-int		ft_check_characters(char **map);
-int		ft_check_valid_map(char **map);
-int		ft_check_special_character(char **map);
+int		ft_check_borders(t_vars *v);
+int		ft_check_valid_map(t_vars *v);
+int		ft_check_characters(t_vars *v);
 int		ft_check_extension(char *file_name);
-char	**ft_copy_map_to_two_dim_array(char *file_path);
+int		ft_check_special_character(char **map);
+int		ft_check_rectangular_shape(t_vars *v);
+char	**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v);
 
 /*********************** Get next line ************************/
 
 char	*ft_save_rest(char *buf);
 char	*ft_get_next_line(int fd);
 int		ft_search_newline(char *s);
+
+/********************** Window management **********************/
+
+int		ft_open_window(t_vars *v);
+void	ft_fill_window(t_vars *v);
+int		ft_close_window(t_vars *v);
+int		key_press(int keycode, t_vars *v);
+void	ft_initialize_pointers(t_vars *v);
+void	ft_fill_util(char c, t_vars *v);
 
 #endif

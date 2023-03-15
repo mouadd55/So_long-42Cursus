@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:02:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/08 02:15:15 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/15 04:23:54 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,94 +27,76 @@ int	ft_check_extension(char *file_name)
 	return (1);
 }
 
-int	ft_check_borders(char **map)
+int	ft_check_borders(t_vars *v)
 {
 	int		i;
 	int		j;
-	t_vars	variables;
 
 	i = 0;
 	j = -1;
-	variables.lines = 0;
-	variables.length_of_line = ft_strlen(map[0]);
-	while (map[variables.lines])
-		variables.lines++;
-	if (variables.length_of_line == variables.lines)
+	if (v->length_of_line == v->lines)
 		return (1);
-	while (++j < variables.length_of_line)
-		if (map[0][j] != '1' || map[variables.lines - 1][j] != '1')
+	while (++j < v->length_of_line)
+		if (v->map[0][j] != '1' || v->map[v->lines - 1][j] != '1')
 			return (1);
-	while (++i <= variables.lines - 2)
-		if (map[i][0] != '1' || map[i][variables.length_of_line - 1] != '1')
+	while (++i <= v->lines - 2)
+		if (v->map[i][0] != '1' || v->map[i][v->length_of_line - 1] != '1')
 			return (1);
 	return (0);
 }
 
-int	ft_check_rectangular_shape(char **map)
+int	ft_check_rectangular_shape(t_vars *v)
 {
-	int		i;
-	t_vars	variables;
+	int	i;
 
 	i = -1;
-	variables.lines = 0;
-	variables.length_of_line = ft_strlen(map[0]);
-	while (map[variables.lines])
-		variables.lines++;
-	while (++i < variables.lines)
-		if (variables.length_of_line != ft_strlen(map[i]))
+	while (++i < v->lines)
+		if (v->length_of_line != (int)ft_strlen(v->map[i]))
 			return (1);
-	if (variables.lines >= variables.length_of_line)
+	if (v->lines >= v->length_of_line)
 		return (1);
 	return (0);
 }
 
-int	ft_check_characters(char **map)
+int	ft_check_characters(t_vars *v)
 {
 	int		i;
 	int		j;
-	t_vars	variables;
 
-	variables.c = 0;
-	variables.e = 0;
-	variables.p = 0;
+	v->c = 0;
+	v->e = 0;
+	v->p = 0;
 	i = -1;
-	while (map[++i])
+	while (v->map[++i])
 	{
 		j = -1;
-		while (map[i][++j])
+		while (v->map[i][++j])
 		{
-			if (map[i][j] == 'E')
-				variables.e++;
-			else if (map[i][j] == 'P')
-				variables.p++;
-			else if (map[i][j] == 'C')
-				variables.c++;
+			if (v->map[i][j] == 'E')
+				v->e++;
+			else if (v->map[i][j] == 'P')
+				v->p++;
+			else if (v->map[i][j] == 'C')
+				v->c++;
 		}
 	}
-	if (variables.e == 1 && variables.p == 1 && variables.c >= 1)
+	if (v->e == 1 && v->p == 1 && v->c >= 1)
 		return (0);
 	return (1);
 }
 
-int	ft_check_valid_map(char **map)
+int	ft_check_valid_map(t_vars *v)
 {
-	t_vars	variables;
-
-	variables.lines = 0;
-	variables.length_of_line = 0;
-	while (map[variables.lines])
-		variables.lines++;
-	while (map[0][variables.length_of_line])
-		variables.length_of_line++;
-	if (ft_check_borders(map))
+	v->length_of_line = ft_strlen(v->map[0]);
+	if (ft_check_borders(v))
 		return (1);
-	else if (variables.lines == variables.length_of_line)
+	else if (v->lines == v->length_of_line)
 		return (1);
-	else if (ft_check_characters(map))
+	else if (ft_check_characters(v))
 		return (1);
-	else if (ft_check_rectangular_shape(map))
+	else if (ft_check_rectangular_shape(v))
 		return (1);
-	else if (ft_check_special_character(map))
+	else if (ft_check_special_character(v->map))
 		return (1);
 	return (0);
 }

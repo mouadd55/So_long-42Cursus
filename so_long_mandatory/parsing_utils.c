@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 08:54:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/08 02:10:59 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/12 20:46:00 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_error(int cases)
 		ft_putstr("\e[1m\x1B[31mError: \e[37mfile does not exist\n");
 	else if (cases == 4)
 		ft_putstr("\e[1m\x1B[31mError: \e[37minvalid map\n");
-	exit(0);
+	else if (cases == 5)
+		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo many arguments\n");
+	exit(1);
 }
 
 char	*ft_read_map(int fd)
@@ -43,17 +45,16 @@ char	*ft_read_map(int fd)
 	return (str);
 }
 
-char	**ft_copy_map_to_two_dim_array(char *file_path)
+char	**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v)
 {
 	int		i;
 	int		fd;
 	char	*str;
 	char	**map;
-	t_vars	variables;
 
 	i = -1;
-	variables.lines = 0;
-	variables.newline = 0;
+	v->lines = 0;
+	v->newline = 0;
 	fd = open(file_path, O_RDWR);
 	if (fd < 0)
 		ft_error(3);
@@ -62,11 +63,11 @@ char	**ft_copy_map_to_two_dim_array(char *file_path)
 		return (NULL);
 	while (str[++i])
 		if (str[i] == '\n')
-			variables.newline++;
+			v->newline++;
 	map = ft_split(str, '\n');
-	while (map[variables.lines])
-		variables.lines++;
-	if (variables.lines <= variables.newline)
+	while (map[v->lines])
+		v->lines++;
+	if (v->lines <= v->newline)
 		ft_error(4);
 	free(str);
 	return (map);
