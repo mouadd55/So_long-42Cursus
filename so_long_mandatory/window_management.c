@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:58:11 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/15 04:42:07 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/15 17:15:55 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_close_window(t_vars *v)
 {
 	mlx_destroy_window(v->mlx, v->mlx_win);
+	free (v);
 	exit(0);
 }
 
@@ -30,13 +31,13 @@ void	ft_initialize_pointers(t_vars *v)
 	v->pd = mlx_xpm_file_to_image(v->mlx, "./images/pd.xpm", &x, &y);
 	v->pl = mlx_xpm_file_to_image(v->mlx, "./images/pl.xpm", &x, &y);
 	v->pr = mlx_xpm_file_to_image(v->mlx, "./images/pr.xpm", &x, &y);
+	v->cl = mlx_xpm_file_to_image(v->mlx, "./images/cl.xpm", &x, &y);
 	v->wl1 = mlx_xpm_file_to_image(v->mlx, "./images/wl1.xpm", &x, &y);
 	v->wl2 = mlx_xpm_file_to_image(v->mlx, "./images/wl2.xpm", &x, &y);
-	v->cl = mlx_xpm_file_to_image(v->mlx, "./images/cl.xpm", &x, &y);
 	v->ex1 = mlx_xpm_file_to_image(v->mlx, "./images/ex1.xpm", &x, &y);
 	v->ex2 = mlx_xpm_file_to_image(v->mlx, "./images/ex2.xpm", &x, &y);
-	if (!v->bg || !v->pu || !v->pd || !v->pl || !v->pr || !v->wl1 || !v->wl2
-		|| !v->cl || !v->ex1 || !v->ex2)
+	if (!v->bg || !v->pu || !v->pd || !v->pl || !v->pr || !v->cl || !v->wl1
+		|| !v->wl2 || !v->ex1 || !v->ex2)
 		ft_error(0);
 }
 

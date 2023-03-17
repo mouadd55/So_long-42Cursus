@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 08:54:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/12 20:46:00 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/17 04:37:15 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_error(int cases)
 		ft_putstr("\e[1m\x1B[31mError: \e[37minvalid map\n");
 	else if (cases == 5)
 		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo many arguments\n");
+	else if (cases == 6)
+		ft_putstr("\e[1m\x1B[31mError: \e[37mthere no valid path\n");
 	exit(1);
 }
 
@@ -77,17 +79,15 @@ int	ft_check_special_character(char **map)
 {
 	int		i;
 	int		j;
-	char	**tmp;
 
 	i = -1;
-	tmp = map;
-	while (tmp[++i])
+	while (map[++i])
 	{
 		j = -1;
-		while (tmp[i][++j])
+		while (map[i][++j])
 		{
-			if (tmp[i][j] != '1' && tmp[i][j] != '0' && tmp[i][j] != 'E'
-				&& tmp[i][j] != 'P' && tmp[i][j] != 'C')
+			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
+				&& map[i][j] != 'P' && map[i][j] != 'C')
 				return (1);
 		}
 	}

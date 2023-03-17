@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/15 04:30:59 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/17 05:47:22 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct t_vars
 	void	*mlx;
 	void	*img;
 	char	**map;
+	char	**tmp;
 	int		lines;
 	int		walls;
 	int		count;
@@ -57,8 +58,8 @@ typedef struct t_vars
 
 /************************* Libft utils *************************/
 
-void	ft_putchar(char ch);
 void	ft_putnbr(int nbr);
+void	ft_putchar(char ch);
 void	ft_putstr(char *str);
 char	**ft_free_arr(char **arr);
 size_t	ft_strlen(const char *str);
@@ -76,8 +77,8 @@ int		ft_check_borders(t_vars *v);
 int		ft_check_valid_map(t_vars *v);
 int		ft_check_characters(t_vars *v);
 int		ft_check_extension(char *file_name);
-int		ft_check_special_character(char **map);
 int		ft_check_rectangular_shape(t_vars *v);
+int		ft_check_special_character(char **map);
 char	**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v);
 
 /*********************** Get next line ************************/
@@ -88,11 +89,16 @@ int		ft_search_newline(char *s);
 
 /********************** Window management **********************/
 
+int		ft_valid_path(t_vars *v);
 int		ft_open_window(t_vars *v);
 void	ft_fill_window(t_vars *v);
 int		ft_close_window(t_vars *v);
+void	ft_fill_util(char c, t_vars *v);
+int		ft_count_characters(char **map);
 int		key_press(int keycode, t_vars *v);
 void	ft_initialize_pointers(t_vars *v);
-void	ft_fill_util(char c, t_vars *v);
+void	ft_swap_characters(t_vars *v, int i, int j);
+char	**ft_fill(char **map, t_vars *v, int i, int j);
+int		ft_move_player(t_vars *v, int keycode, int i, int j);
 
 #endif

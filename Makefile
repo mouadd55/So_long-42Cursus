@@ -6,7 +6,7 @@
 #    By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 11:01:41 by moudrib           #+#    #+#              #
-#    Updated: 2023/03/15 03:00:40 by moudrib          ###   ########.fr        #
+#    Updated: 2023/03/16 02:05:05 by moudrib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = \
 		so_long_mandatory/utils2.c \
 		so_long_mandatory/so_long.c \
 		so_long_mandatory/parsing.c \
+		so_long_mandatory/valid_path.c \
 		so_long_mandatory/parsing_utils.c \
 		so_long_mandatory/get_next_line.c \
 		so_long_mandatory/player_movements.c \
