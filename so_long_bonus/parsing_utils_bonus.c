@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   parsing_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 08:54:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:45:21 by moudrib          ###   ########.fr       */
+/*   Created: 2023/03/18 00:48:39 by moudrib           #+#    #+#             */
+/*   Updated: 2023/03/18 04:02:24 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*ft_read_map(int fd)
 	line = ft_get_next_line(fd);
 	while (line)
 	{
+		if (ft_strlen(line) < 4)
+			ft_error(4);
 		str = ft_strjoin(str, line);
 		free(line);
 		line = ft_get_next_line(fd);
@@ -85,7 +87,7 @@ int	ft_check_special_character(char **map)
 		while (map[i][++j])
 		{
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
-				&& map[i][j] != 'P' && map[i][j] != 'C')
+				&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'Z')
 				return (1);
 		}
 	}

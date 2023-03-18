@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/17 05:47:22 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/18 05:24:31 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ typedef struct t_vars
 	void	*pr;
 	void	*cl;
 	void	*bg;
+	void	*eu;
+	void	*ed;
+	void	*el;
+	void	*er;
 	void	*ex1;
 	void	*ex2;
 	void	*wl1;
@@ -58,6 +62,8 @@ typedef struct t_vars
 
 /************************* Libft utils *************************/
 
+char	*ft_itoa(int n);
+int		nbr_len(long nbr);
 void	ft_putnbr(int nbr);
 void	ft_putchar(char ch);
 void	ft_putstr(char *str);
@@ -91,8 +97,8 @@ int		ft_search_newline(char *s);
 
 int		ft_valid_path(t_vars *v);
 int		ft_open_window(t_vars *v);
-void	ft_fill_window(t_vars *v);
-int		ft_close_window(t_vars *v);
+int		ft_fill_window(t_vars *v);
+int		ft_close_window(t_vars *v, int i);
 void	ft_fill_util(char c, t_vars *v);
 int		ft_count_characters(char **map);
 int		key_press(int keycode, t_vars *v);

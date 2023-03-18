@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_movements.c                                 :+:      :+:    :+:   */
+/*   player_movements_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 03:33:31 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:32:57 by moudrib          ###   ########.fr       */
+/*   Created: 2023/03/18 00:50:16 by moudrib           #+#    #+#             */
+/*   Updated: 2023/03/18 05:29:23 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	ft_swap_characters(t_vars *v, int i, int j)
 		v->moves++;
 		v->count++;
 	}
-	else if (v->map[v->i + i][v->j + j] == 'E'
-			&& v->count == v->c)
+	else if (v->map[v->i + i][v->j + j] == 'E' && v->count == v->c)
 		ft_close_window(v, 1);
+	else if (v->map[v->i + i][v->j + j] == 'Z')
+		ft_close_window(v, 2);
 }
 
 int	ft_move_player(t_vars *v, int keycode, int i, int j)
@@ -68,12 +69,6 @@ int	key_press(int keycode, t_vars *v)
 		ft_move_player(v, keycode, 0, -1);
 	else if (keycode == 2 || keycode == 124)
 		ft_move_player(v, keycode, 0, 1);
-	if (moves != v->moves)
-	{
-		ft_putstr("\033[1m\e[33mMoves: \x1B[0m\033[1m");
-		ft_putnbr(v->moves);
-		ft_putchar('\n');
-	}
 	mlx_clear_window(v->mlx, v->mlx_win);
 	ft_fill_window(v);
 	return (0);

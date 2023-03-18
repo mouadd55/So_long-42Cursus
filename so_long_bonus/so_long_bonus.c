@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 11:23:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:41:09 by moudrib          ###   ########.fr       */
+/*   Created: 2023/03/18 00:50:59 by moudrib           #+#    #+#             */
+/*   Updated: 2023/03/18 05:08:24 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 		ft_error(6);
 	if (ft_open_window(v))
 		exit (1);
+	mlx_loop_hook(v->mlx, ft_fill_window, v);
 	mlx_hook(v->mlx_win, 2, 0, key_press, v);
 	mlx_hook(v->mlx_win, 17, 0, ft_close_window, v);
 	mlx_loop(v->mlx);
