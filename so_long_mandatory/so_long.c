@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:23:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:41:09 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 02:14:04 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	leaks(void)
 
 int	main(int ac, char **av)
 {
+	// atexit(leaks);
 	t_vars	*v;
 
 	v = malloc(sizeof(t_vars));
@@ -34,10 +35,8 @@ int	main(int ac, char **av)
 		ft_error(4);
 	if (ft_valid_path(v))
 		ft_error(6);
-	if (ft_open_window(v))
-		exit (1);
+	ft_open_window(v);
 	mlx_hook(v->mlx_win, 2, 0, key_press, v);
 	mlx_hook(v->mlx_win, 17, 0, ft_close_window, v);
 	mlx_loop(v->mlx);
-	ft_free_arr(v->map);
 }

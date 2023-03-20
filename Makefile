@@ -6,7 +6,7 @@
 #    By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 11:01:41 by moudrib           #+#    #+#              #
-#    Updated: 2023/03/18 05:37:23 by moudrib          ###   ########.fr        #
+#    Updated: 2023/03/19 00:29:26 by moudrib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ BONUS_SRC	= \
 				so_long_bonus/utils3_bonus.c \
 				so_long_bonus/so_long_bonus.c \
 				so_long_bonus/parsing_bonus.c \
+				so_long_bonus/animation_bonus.c \
 				so_long_bonus/valid_path_bonus.c \
 				so_long_bonus/parsing_utils_bonus.c \
 				so_long_bonus/get_next_line_bonus.c \

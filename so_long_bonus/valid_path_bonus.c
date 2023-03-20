@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:55:30 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:51:11 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/19 00:22:14 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_count_characters(char **map)
 char	**ft_fill(char **map, t_vars *v, int i, int j)
 {
 	if (i >= v->lines || j >= v->length_of_line || i < 0 || j < 0
-		|| map[i][j] == '1' || map[i][j] == '#' || map[i][j] == 'Z')
+		|| map[i][j] == '1' || map[i][j] == '#' || map[i][j] == 'L')
 		return (0);
 	map[i][j] = '#';
 	ft_fill(map, v, i + 1, j);

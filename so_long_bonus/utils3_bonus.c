@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 05:35:29 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:35:59 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 00:08:54 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,21 @@ char	*ft_itoa(int n)
 		nb /= 10;
 	}
 	return (str);
+}
+
+void	ft_print_moves_in_window(t_vars *v)
+{
+	char	*move;
+
+	v->x = 0;
+	while (v->x < (v->length_of_line * 50))
+	{
+		mlx_put_image_to_window(v->mlx, v->mlx_win, v->bg, v->x, v->y);
+		v->x += 50;
+	}
+	move = ft_itoa(v->moves);
+	mlx_string_put(v->mlx, v->mlx_win, 20, v->lines * 50 + 10, 0x111, "Moves:");
+	mlx_string_put(v->mlx, v->mlx_win, 90, v->lines * 50 + 10, 0x111,
+		move);
+	free(move);
 }

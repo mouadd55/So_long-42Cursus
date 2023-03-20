@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:58:11 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:36:58 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 03:38:25 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int	ft_close_window(t_vars *v, int i)
 {
 	mlx_destroy_window(v->mlx, v->mlx_win);
+	ft_free_arr(v->map);
+	ft_free_arr(v->tmp);
 	if (i == 1)
-		ft_putstr("            \e[1m\e[43m\e[30mYou Win!!");
+		ft_putstr("            \e[1m\e[43m\e[30mYou Win!!\e[0m\n");
 	free (v);
 	exit(0);
 }
@@ -26,8 +28,6 @@ void	ft_initialize_pointers(t_vars *v)
 	int	x;
 	int	y;
 
-	x = 0;
-	y = 0;
 	v->bg = mlx_xpm_file_to_image(v->mlx, "./images/bg.xpm", &x, &y);
 	v->pu = mlx_xpm_file_to_image(v->mlx, "./images/pu.xpm", &x, &y);
 	v->pd = mlx_xpm_file_to_image(v->mlx, "./images/pd.xpm", &x, &y);
@@ -88,21 +88,20 @@ int	ft_fill_window(t_vars *v)
 	return (0);
 }
 
-int	ft_open_window(t_vars *v)
+void	ft_open_window(t_vars *v)
 {
 	v->mlx = mlx_init();
 	if (!v->mlx)
-		return (1);
+		exit(1);
 	if (v->lines > 29 || v->length_of_line > 57)
-		return (1);
+		exit(1);
 	v->mlx_win = mlx_new_window(v->mlx, (v->length_of_line * 50), (v->lines
 				* 50), "So Long");
 	if (!v->mlx_win)
-		return (free(v->mlx_win), 1);
-	v->keycode = 13;
+		exit(1);
 	v->moves = 0;
 	v->count = 0;
+	v->keycode = 13;
 	ft_initialize_pointers(v);
 	ft_fill_window(v);
-	return (0);
 }

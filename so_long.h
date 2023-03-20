@@ -6,16 +6,16 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:24:31 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 04:29:58 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
-# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -32,6 +32,8 @@ typedef struct t_vars
 	int		e;
 	int		p;
 	int		c;
+	int		player_pos_x;
+	int		player_pos_y;
 	void	*pu;
 	void	*pd;
 	void	*pl;
@@ -48,63 +50,68 @@ typedef struct t_vars
 	void	*wl2;
 	void	*mlx;
 	void	*img;
+	void	*dead;
 	char	**map;
 	char	**tmp;
 	int		lines;
 	int		walls;
 	int		count;
 	int		moves;
+	int		frame;
+	int		enemy;
 	int		keycode;
 	int		newline;
 	void	*mlx_win;
 	int		length_of_line;
-}	t_vars;
+}			t_vars;
 
 /************************* Libft utils *************************/
 
-char	*ft_itoa(int n);
-int		nbr_len(long nbr);
-void	ft_putnbr(int nbr);
-void	ft_putchar(char ch);
-void	ft_putstr(char *str);
-char	**ft_free_arr(char **arr);
-size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
-int		ft_strcmp(char *s1, char *s2);
-char	*ft_strjoin(char *s1, char *s2);
-char	**ft_split(char const *s, char c);
-int		ft_count_words(char const *s, char c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_itoa(int n);
+int			nbr_len(long nbr);
+void		ft_putnbr(int nbr);
+void		ft_putchar(char ch);
+void		ft_putstr(char *str);
+char		**ft_free_arr(char **arr);
+size_t		ft_strlen(const char *str);
+char		*ft_strdup(const char *s1);
+int			ft_strcmp(char *s1, char *s2);
+char		*ft_strjoin(char *s1, char *s2);
+char		**ft_split(char const *s, char c);
+int			ft_count_words(char const *s, char c);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
 
 /************************** Parsing ***************************/
 
-void	ft_error(int cases);
-int		ft_check_borders(t_vars *v);
-int		ft_check_valid_map(t_vars *v);
-int		ft_check_characters(t_vars *v);
-int		ft_check_extension(char *file_name);
-int		ft_check_rectangular_shape(t_vars *v);
-int		ft_check_special_character(char **map);
-char	**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v);
+void		ft_error(int cases);
+int			ft_check_borders(t_vars *v);
+int			ft_check_valid_map(t_vars *v);
+int			ft_check_characters(t_vars *v);
+int			ft_check_extension(char *file_name);
+int			ft_check_rectangular_shape(t_vars *v);
+int			ft_check_special_character(char **map);
+char		**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v);
 
 /*********************** Get next line ************************/
 
-char	*ft_save_rest(char *buf);
-char	*ft_get_next_line(int fd);
-int		ft_search_newline(char *s);
+char		*ft_save_rest(char *buf);
+char		*ft_get_next_line(int fd);
+int			ft_search_newline(char *s);
 
 /********************** Window management **********************/
 
-int		ft_valid_path(t_vars *v);
-int		ft_open_window(t_vars *v);
-int		ft_fill_window(t_vars *v);
-int		ft_close_window(t_vars *v, int i);
-void	ft_fill_util(char c, t_vars *v);
-int		ft_count_characters(char **map);
-int		key_press(int keycode, t_vars *v);
-void	ft_initialize_pointers(t_vars *v);
-void	ft_swap_characters(t_vars *v, int i, int j);
-char	**ft_fill(char **map, t_vars *v, int i, int j);
-int		ft_move_player(t_vars *v, int keycode, int i, int j);
+int			ft_valid_path(t_vars *v);
+void		ft_open_window(t_vars *v);
+int			ft_fill_window(t_vars *v);
+void		ft_enemy_movements(t_vars *v);
+void		ft_fill_util(char c, t_vars *v);
+int			ft_count_characters(char **map);
+int			ft_close_window(t_vars *v, int i);
+int			key_press(int keycode, t_vars *v);
+void		ft_initialize_pointers(t_vars *v);
+void		ft_print_moves_in_window(t_vars *v);
+void		ft_swap_characters(t_vars *v, int i, int j);
+char		**ft_fill(char **map, t_vars *v, int i, int j);
+int			ft_move_player(t_vars *v, int keycode, int i, int j);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:50:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:29:23 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/19 03:53:07 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_swap_characters(t_vars *v, int i, int j)
 	}
 	else if (v->map[v->i + i][v->j + j] == 'E' && v->count == v->c)
 		ft_close_window(v, 1);
-	else if (v->map[v->i + i][v->j + j] == 'Z')
+	else if (v->map[v->i + i][v->j + j] == 'L')
 		ft_close_window(v, 2);
 }
 
