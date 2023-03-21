@@ -6,7 +6,7 @@
 #    By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 11:01:41 by moudrib           #+#    #+#              #
-#    Updated: 2023/03/19 00:29:26 by moudrib          ###   ########.fr        #
+#    Updated: 2023/03/21 02:05:23 by moudrib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ $(NAME): $(OBJ)
 	@echo
 	@echo
 
-$(OBJDIR)%.o: %.c so_long.h
+$(OBJDIR)%.o: %.c so_long_mandatory/so_long.h so_long_bonus/so_long_bonus.h
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(G)Compiling: $(W)$<"

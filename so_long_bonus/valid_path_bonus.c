@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:55:30 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/19 00:22:14 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 01:56:00 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_count_characters(char **map)
 {
@@ -40,17 +40,17 @@ int	ft_count_characters(char **map)
 	return (0);
 }
 
-char	**ft_fill(char **map, t_vars *v, int i, int j)
+char	**ft_fill(t_vars *v, int i, int j)
 {
 	if (i >= v->lines || j >= v->length_of_line || i < 0 || j < 0
-		|| map[i][j] == '1' || map[i][j] == '#' || map[i][j] == 'L')
+		|| v->tmp[i][j] == '1' || v->tmp[i][j] == '#' || v->tmp[i][j] == 'Z')
 		return (0);
-	map[i][j] = '#';
-	ft_fill(map, v, i + 1, j);
-	ft_fill(map, v, i - 1, j);
-	ft_fill(map, v, i, j + 1);
-	ft_fill(map, v, i, j - 1);
-	return (map);
+	v->tmp[i][j] = '#';
+	ft_fill(v, i + 1, j);
+	ft_fill(v, i - 1, j);
+	ft_fill(v, i, j + 1);
+	ft_fill(v, i, j - 1);
+	return (v->tmp);
 }
 
 int	ft_valid_path(t_vars *v)
@@ -74,7 +74,7 @@ int	ft_valid_path(t_vars *v)
 		}
 		v->i++;
 	}
-	if (ft_count_characters(ft_fill(v->tmp, v, x, y)))
+	if (ft_count_characters(ft_fill(v, x, y)))
 		return (0);
 	return (1);
 }

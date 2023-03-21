@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 01:52:46 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/17 06:59:52 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:54:09 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	ft_count_characters(char **map)
 {

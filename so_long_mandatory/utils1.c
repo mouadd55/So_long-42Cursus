@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:49:24 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/15 00:18:10 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:54:05 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 size_t	ft_strlen(const char *str)
 {

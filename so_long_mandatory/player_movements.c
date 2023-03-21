@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 03:33:31 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:32:57 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:53:54 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	ft_swap_characters(t_vars *v, int i, int j)
 {

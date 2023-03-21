@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:58:11 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 03:38:25 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:54:13 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	ft_close_window(t_vars *v, int i)
 {

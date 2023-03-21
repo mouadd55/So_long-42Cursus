@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:02:16 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 05:42:23 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:53:52 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	ft_check_extension(char *file_name)
 {
@@ -53,7 +53,7 @@ int	ft_check_rectangular_shape(t_vars *v)
 	while (++i < v->lines)
 		if (v->length_of_line != (int)ft_strlen(v->map[i]))
 			return (1);
-	if (v->lines >= v->length_of_line)
+	if (v->lines == v->length_of_line)
 		return (1);
 	return (0);
 }

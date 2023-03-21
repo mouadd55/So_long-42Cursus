@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:56:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 04:58:23 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:55:12 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_close_window(t_vars *v, int i)
 {
@@ -43,10 +43,9 @@ void	ft_initialize_pointers(t_vars *v)
 	v->wl2 = mlx_xpm_file_to_image(v->mlx, "./images/wl2.xpm", &x, &y);
 	v->ex1 = mlx_xpm_file_to_image(v->mlx, "./images/ex1.xpm", &x, &y);
 	v->ex2 = mlx_xpm_file_to_image(v->mlx, "./images/ex2.xpm", &x, &y);
-	v->dead = mlx_xpm_file_to_image(v->mlx, "./images/dead.xpm", &x, &y);
 	if (!v->bg || !v->pu || !v->pd || !v->pl || !v->pr || !v->cl || !v->wl1
 		|| !v->wl2 || !v->ex1 || !v->ex2 || !v->el || !v->ed || !v->er
-		|| !v->eu || !v->dead)
+		|| !v->eu)
 		ft_error(0);
 }
 
@@ -67,14 +66,8 @@ void	ft_fill_util(char c, t_vars *v)
 		mlx_put_image_to_window(v->mlx, v->mlx_win, v->pr, v->x, v->y);
 	else if (c == 'C')
 		mlx_put_image_to_window(v->mlx, v->mlx_win, v->cl, v->x, v->y);
-	else if (c == 'L' && v->enemy == 1)
-		mlx_put_image_to_window(v->mlx, v->mlx_win, v->el, v->x, v->y);
-	else if (c == 'L' && v->enemy == 5)
-		mlx_put_image_to_window(v->mlx, v->mlx_win, v->eu, v->x, v->y);
-	else if (c == 'L' && v->enemy == 3)
-		mlx_put_image_to_window(v->mlx, v->mlx_win, v->er, v->x, v->y);
-	else if (c == 'L' && v->enemy == 2)
-		mlx_put_image_to_window(v->mlx, v->mlx_win, v->ed, v->x, v->y);
+	else if (c == 'Z')
+		ft_put_enemy_images(v);
 	else if (c == 'E' && v->count < v->c)
 		mlx_put_image_to_window(v->mlx, v->mlx_win, v->ex1, v->x, v->y);
 	else if (c == 'E' && v->count == v->c)

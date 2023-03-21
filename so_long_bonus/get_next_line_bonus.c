@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:47:15 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 00:47:37 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:00:48 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 char	*ft_save_rest(char *buf)
 {

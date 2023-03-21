@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 08:54:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/19 03:28:14 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:53:49 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	ft_error(int cases)
 {

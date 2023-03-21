@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:57:06 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/01 17:08:52 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:54:07 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 char	*ft_strdup(const char *s1)
 {

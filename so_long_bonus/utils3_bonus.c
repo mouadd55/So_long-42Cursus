@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 05:35:29 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 00:08:54 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:54:31 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 int	nbr_len(long nbr)
 {

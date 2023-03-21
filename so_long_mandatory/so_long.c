@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:23:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 02:14:04 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:46:38 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	leaks(void)
 {
@@ -19,7 +19,6 @@ void	leaks(void)
 
 int	main(int ac, char **av)
 {
-	// atexit(leaks);
 	t_vars	*v;
 
 	v = malloc(sizeof(t_vars));

@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:48:39 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/19 00:22:23 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:00:55 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_error(int cases)
 {
@@ -87,7 +87,7 @@ int	ft_check_special_character(char **map)
 		while (map[i][++j])
 		{
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'E'
-				&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'L')
+				&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'Z')
 				return (1);
 		}
 	}

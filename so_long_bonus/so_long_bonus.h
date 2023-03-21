@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 04:29:58 by moudrib          ###   ########.fr       */
+/*   Created: 2023/03/20 20:50:43 by moudrib           #+#    #+#             */
+/*   Updated: 2023/03/21 01:54:04 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-# include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
+# include <math.h>
+# include <fcntl.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
@@ -32,8 +33,6 @@ typedef struct t_vars
 	int		e;
 	int		p;
 	int		c;
-	int		player_pos_x;
-	int		player_pos_y;
 	void	*pu;
 	void	*pd;
 	void	*pl;
@@ -50,7 +49,6 @@ typedef struct t_vars
 	void	*wl2;
 	void	*mlx;
 	void	*img;
-	void	*dead;
 	char	**map;
 	char	**tmp;
 	int		lines;
@@ -104,6 +102,7 @@ int			ft_valid_path(t_vars *v);
 void		ft_open_window(t_vars *v);
 int			ft_fill_window(t_vars *v);
 void		ft_enemy_movements(t_vars *v);
+void		ft_put_enemy_images(t_vars *v);
 void		ft_fill_util(char c, t_vars *v);
 int			ft_count_characters(char **map);
 int			ft_close_window(t_vars *v, int i);
@@ -111,7 +110,7 @@ int			key_press(int keycode, t_vars *v);
 void		ft_initialize_pointers(t_vars *v);
 void		ft_print_moves_in_window(t_vars *v);
 void		ft_swap_characters(t_vars *v, int i, int j);
-char		**ft_fill(char **map, t_vars *v, int i, int j);
+char		**ft_fill(t_vars *v, int i, int j);
 int			ft_move_player(t_vars *v, int keycode, int i, int j);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:52:08 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/18 00:52:10 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:01:04 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_count_words(char const *s, char c)
 {
