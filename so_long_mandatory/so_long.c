@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:23:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 21:46:38 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:26:25 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int ac, char **av)
 	t_vars	*v;
 
 	v = malloc(sizeof(t_vars));
+	if (!v)
+		return (0);
 	if (ac < 2)
 		ft_error(1);
 	else if (ac > 2)

@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:48:39 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 21:00:55 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:23:52 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void	ft_error(int cases)
 		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo many arguments\n");
 	else if (cases == 6)
 		ft_putstr("\e[1m\x1B[31mError: \e[37mthere no valid path\n");
+	else if (cases == 7)
+	{
+		ft_putstr("\e[1m\x1B[31mError: \e[37mthe map contains a duplicates");
+		ft_putstr("\e[37m characters (exit/start).\n");
+	}
 	exit(1);
 }
 

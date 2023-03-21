@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:00:21 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 21:04:20 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:20:35 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int			ft_check_borders(t_vars *v);
 int			ft_check_valid_map(t_vars *v);
 int			ft_check_characters(t_vars *v);
 int			ft_check_extension(char *file_name);
-int			ft_check_rectangular_shape(t_vars *v);
 int			ft_check_special_character(char **map);
 char		**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v);
 
@@ -99,7 +98,7 @@ int			ft_close_window(t_vars *v, int i);
 int			key_press(int keycode, t_vars *v);
 void		ft_initialize_pointers(t_vars *v);
 void		ft_swap_characters(t_vars *v, int i, int j);
-char		**ft_fill(char **map, t_vars *v, int i, int j);
+char		**ft_fill(t_vars *v, int i, int j);
 int			ft_move_player(t_vars *v, int keycode, int i, int j);
 
 #endif

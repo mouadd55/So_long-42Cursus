@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:50:43 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/21 01:54:04 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:20:45 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ int			ft_check_borders(t_vars *v);
 int			ft_check_valid_map(t_vars *v);
 int			ft_check_characters(t_vars *v);
 int			ft_check_extension(char *file_name);
-int			ft_check_rectangular_shape(t_vars *v);
 int			ft_check_special_character(char **map);
 char		**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v);
 

@@ -6,11 +6,34 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:55:30 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/21 01:56:00 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 16:29:59 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+int	ft_exit(t_vars *v)
+{
+	v->i = 0;
+	while (v->tmp[v->i])
+	{
+		v->j = 0;
+		while (v->tmp[v->i][v->j])
+		{
+			if (v->tmp[v->i][v->j] == 'E')
+			{
+				if (v->tmp[v->i - 1][v->j] == '#' || v->tmp[v->i
+					+ 1][v->j] == '#' ||
+					v->tmp[v->i][v->j - 1] == '#' || v->tmp[v->i][v->j
+						+ 1] == '#')
+					return (1);
+			}
+			v->j++;
+		}
+		v->i++;
+	}
+	return (0);
+}
 
 int	ft_count_characters(char **map)
 {
@@ -35,7 +58,7 @@ int	ft_count_characters(char **map)
 				v.c++;
 		}
 	}
-	if (v.e == 0 && v.p == 0 && v.c == 0)
+	if (v.e == 1 && v.p == 0 && v.c == 0)
 		return (1);
 	return (0);
 }
@@ -43,7 +66,8 @@ int	ft_count_characters(char **map)
 char	**ft_fill(t_vars *v, int i, int j)
 {
 	if (i >= v->lines || j >= v->length_of_line || i < 0 || j < 0
-		|| v->tmp[i][j] == '1' || v->tmp[i][j] == '#' || v->tmp[i][j] == 'Z')
+		|| v->tmp[i][j] == '1' || v->tmp[i][j] == '#' || v->tmp[i][j] == 'Z'
+		|| v->tmp[i][j] == 'E')
 		return (0);
 	v->tmp[i][j] = '#';
 	ft_fill(v, i + 1, j);
@@ -55,8 +79,8 @@ char	**ft_fill(t_vars *v, int i, int j)
 
 int	ft_valid_path(t_vars *v)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	v->i = 0;
 	while (v->tmp[v->i])
@@ -74,7 +98,7 @@ int	ft_valid_path(t_vars *v)
 		}
 		v->i++;
 	}
-	if (ft_count_characters(ft_fill(v, x, y)))
+	if (ft_count_characters(ft_fill(v, x, y)) && ft_exit(v))
 		return (0);
 	return (1);
 }

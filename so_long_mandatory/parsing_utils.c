@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 08:54:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 20:53:49 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 19:25:30 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,29 @@
 void	ft_error(int cases)
 {
 	if (cases == 1)
-		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo few arguments\n");
+		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo few arguments.\n");
 	else if (cases == 2)
-		ft_putstr("\e[1m\x1B[31mError: \e[37minvalid extension\n");
+		ft_putstr("\e[1m\x1B[31mError: \e[37minvalid extension.\n");
 	else if (cases == 3)
-		ft_putstr("\e[1m\x1B[31mError: \e[37mfile does not exist\n");
+		ft_putstr("\e[1m\x1B[31mError: \e[37mfile does not exist.\n");
 	else if (cases == 4)
-		ft_putstr("\e[1m\x1B[31mError: \e[37minvalid map\n");
+		ft_putstr("\e[1m\x1B[31mError: \e[37minvalid map.\n");
 	else if (cases == 5)
-		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo many arguments\n");
+		ft_putstr("\e[1m\x1B[31mError: \e[37mtoo many arguments.\n");
 	else if (cases == 6)
-		ft_putstr("\e[1m\x1B[31mError: \e[37mthere no valid path\n");
+		ft_putstr("\e[1m\x1B[31mError: \e[37mthere no valid path.\n");
+	else if (cases == 7)
+	{
+		ft_putstr("\e[1m\x1B[31mError: \e[37mthe map contains a duplicates");
+		ft_putstr("\e[37m characters (exit/start).\n");
+	}
 	exit(1);
 }
 
 char	*ft_read_map(int fd)
 {
 	char	*str;
-	char	*line;	
+	char	*line;
 
 	str = NULL;
 	line = ft_get_next_line(fd);
@@ -75,8 +80,8 @@ char	**ft_copy_map_to_two_dim_array(char *file_path, t_vars *v)
 
 int	ft_check_special_character(char **map)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (map[++i])

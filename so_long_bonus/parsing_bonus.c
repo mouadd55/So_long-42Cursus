@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:49:40 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 21:00:51 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:23:37 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,12 @@ int	ft_check_borders(t_vars *v)
 
 	i = 0;
 	j = -1;
-	if (v->length_of_line == v->lines)
-		return (1);
 	while (++j < v->length_of_line)
 		if (v->map[0][j] != '1' || v->map[v->lines - 1][j] != '1')
 			return (1);
 	while (++i <= v->lines - 2)
 		if (v->map[i][0] != '1' || v->map[i][v->length_of_line - 1] != '1')
 			return (1);
-	return (0);
-}
-
-int	ft_check_rectangular_shape(t_vars *v)
-{
-	int	i;
-
-	i = -1;
-	while (++i < v->lines)
-		if (v->length_of_line != (int)ft_strlen(v->map[i]))
-			return (1);
-	if (v->lines == v->length_of_line)
-		return (1);
 	return (0);
 }
 
@@ -80,6 +65,8 @@ int	ft_check_characters(t_vars *v)
 				v->c++;
 		}
 	}
+	if (v->e > 1 || v->p > 1)
+		ft_error(7);
 	if (v->e == 1 && v->p == 1 && v->c >= 1)
 		return (0);
 	return (1);
@@ -93,8 +80,6 @@ int	ft_check_valid_map(t_vars *v)
 	else if (v->lines == v->length_of_line)
 		return (1);
 	else if (ft_check_characters(v))
-		return (1);
-	else if (ft_check_rectangular_shape(v))
 		return (1);
 	else if (ft_check_special_character(v->map))
 		return (1);

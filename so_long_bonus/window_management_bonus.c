@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 00:56:07 by moudrib           #+#    #+#             */
-/*   Updated: 2023/03/20 21:55:12 by moudrib          ###   ########.fr       */
+/*   Updated: 2023/03/21 18:05:05 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_initialize_pointers(t_vars *v)
 	if (!v->bg || !v->pu || !v->pd || !v->pl || !v->pr || !v->cl || !v->wl1
 		|| !v->wl2 || !v->ex1 || !v->ex2 || !v->el || !v->ed || !v->er
 		|| !v->eu)
-		ft_error(0);
+		exit (1);
 }
 
 void	ft_fill_util(char c, t_vars *v)
@@ -102,6 +102,7 @@ void	ft_open_window(t_vars *v)
 	v->mlx = mlx_init();
 	if (!v->mlx)
 		exit(1);
+	ft_initialize_pointers(v);
 	if (v->lines > 29 || v->length_of_line > 57)
 		exit(1);
 	v->mlx_win = mlx_new_window(v->mlx, (v->length_of_line * 50), ((v->lines
@@ -112,6 +113,5 @@ void	ft_open_window(t_vars *v)
 	v->moves = 0;
 	v->frame = 0;
 	v->keycode = 13;
-	ft_initialize_pointers(v);
 	ft_fill_window(v);
 }
