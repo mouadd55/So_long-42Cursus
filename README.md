@@ -89,7 +89,7 @@ For bonus there's an extra character - which makes you lose once touch it.
     
 | CHAR |	OBJECT   |
 | --------- | ---------- |
-| Z         |   Toxic River  |
+| Z         |   Zombie   |
 
 
 The map must be rectangular and surrounded by walls '1'.
@@ -132,3 +132,4 @@ Try to move with the arrow keys and with WASD.
 Check if the window closes when clicking the red cross on window's frame, same with Esc.
 
 Try to minimize the window and open it again.
+
